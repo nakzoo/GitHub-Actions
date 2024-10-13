@@ -11,11 +11,11 @@ jobs:
   build:
 
     runs-on: self-hosted
-
+    
     steps:
     - name: Pull Docker image
-      run: docker pull hbayraktar/cicd-pipeline:latest
+      run: docker pull bayramozkan/cicd-pipeline:docker
     - name: Delete Old docker container
       run:  docker rm -f cicd-pipeline-container || true
     - name: Run Docker Container
-      run: docker run -d -p 8080:8080 --name cicd-pipeline-container hbayraktar/cicd-pipeline
+      run: docker run -d -p 8080:8080 --name cicd-pipeline-for-docker bayramozkan/cicd-pipeline:docker
